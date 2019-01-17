@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/poe-ipfs/precache-manifest.326b5625e19836f34444017f0ecdfa93.js"
+  "/poe-ipfs/precache-manifest.e2375f1ba2ba161113eae51a34fe193f.js"
 );
 
 workbox.clientsClaim();
