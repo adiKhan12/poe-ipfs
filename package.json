@@ -7,7 +7,6 @@
     "bootstrap": "^4.2.1",
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",
-    "react-bootstrap": "https://github.com/mtetlow/react-bootstrap/archive/v0.15.2-alpha.tar.gz",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3",
