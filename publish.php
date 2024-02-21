@@ -25,7 +25,7 @@ if ($_POST)
 
 	$subject = $_POST['ipfsHash'];
 
-	$to = "ghories555@gmail.com";
+	$to = "EMAIL_ADDRESS";
 
 	$from = $_POST['s_id'];
 
