@@ -1,3 +1,5 @@
+//Sir  go to onSubmit option i comented there for you....you will understand...
+
 import {Table, Grid, Button, Form } from 'react-bootstrap';
 import React, { Component } from 'react';
 //import logo from './logo.svg';
@@ -5,6 +7,8 @@ import './App.css';
 import web3 from './web3';
 import ipfs from './ipfs';
 import storehash from './storehash';
+import axios from 'axios';
+const API_PATH = 'https://cors-anywhere.herokuapp.com/';
 
 class App extends Component {
  
@@ -15,8 +19,26 @@ class App extends Component {
       blockNumber:'',
       transactionHash:'',
       gasUsed:'',
-      txReceipt: ''   
+      txReceipt: '',
+      dataSent: false   
     };
+    constructor(props) {
+      super(props);
+      this.state = {s_id: ''};
+  
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleChange(event) {
+      this.setState({s_id: event.target.value});
+    }
+  
+    handleSubmit(event) {
+      alert('A name was submitted: ' + this.state.s_id);
+      event.preventDefault();
+
+    
+    }
    
     captureFile =(event) => {
         event.stopPropagation()
@@ -77,13 +99,28 @@ class App extends Component {
         // call Ethereum contract method "sendHash" and .send IPFS hash to etheruem contract 
         //return the transaction hash from the ethereum contract
         //see, this https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send
-        
+        alert('A id was submitted: ' + this.state.s_id + ' and with hash: '+ this.state.ipfsHash);
         storehash.methods.sendHash(this.state.ipfsHash).send({
           from: accounts[0] 
         }, (error, transactionHash) => {
           console.log(transactionHash);
           this.setState({transactionHash});
         }); //storehash 
+        let reqBody = {
+          ipfsHash: this.state.ipfsHash,
+          s_id: this.state.s_id,
+        };
+
+        // Sir You need to add script to upload id and hash here.....
+        // Your hash is store in this.state.ipfsHash
+        // Your id is stored in this.state.s_id
+
+
+
+
+        
+
+        
       }) //await ipfs.add 
     }; //onSubmit 
   
@@ -104,16 +141,18 @@ class App extends Component {
               type = "file"
               onChange = {this.captureFile}
             />
+             <label>
+          id:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
              <Button 
              bsStyle="primary" 
+             onClick = {e => this.onSubmit(e)}
              type="submit"> 
-             Send it 
+             Submit
              </Button>
           </Form>
-
           <hr/>
-            <Button onClick = {this.onClick}> Get Transaction Receipt </Button>
-
               <Table bordered responsive>
                 <thead>
                   <tr>
@@ -127,10 +166,15 @@ class App extends Component {
                     <td>IPFS Hash</td>
                     <td>{this.state.ipfsHash}</td>
                   </tr>                
+                  <tr>
+                  <td>id</td>
+                    <td>{this.state.s_id}</td>
+                    </tr>
                 </tbody>
             </Table>
         </Grid>
      </div>
+     
       );
     } //render
 }

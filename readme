@@ -1,0 +1,2 @@
+Sir first of all you need to come into ipfs-poe directory here in terminal then type "npm start" your peoject will be live in browser then any changes you make in src/app.js file it will automatically reflect there so what changes you make you will also see them so if you make any error the terminal will say you compilation error thats beauty of react app
+

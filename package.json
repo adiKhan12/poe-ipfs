@@ -4,8 +4,12 @@
   "private": true,
   "homepage": "https://adiKhan12.github.io/poe-ipfs/",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "gh-pages": "^2.0.1",
+    "ipfs-api": "file://node_modules/ipfs-api",
+    "node": "8.10.0",
+    "npm": "3.5.2",
     "react": "^16.7.0",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^16.7.0",
